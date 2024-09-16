@@ -3,7 +3,7 @@ package net.socialgamer.cah.handlers;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 
 import net.socialgamer.cah.Constants.AjaxOperation;
 import net.socialgamer.cah.Constants.AjaxRequest;
@@ -19,13 +19,14 @@ import net.socialgamer.cah.data.QueuedMessage;
 import net.socialgamer.cah.data.QueuedMessage.MessageType;
 import net.socialgamer.cah.data.User;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.google.inject.Inject;
 
 
 public class KickHandler extends Handler {
-  protected final Logger logger = Logger.getLogger(KickHandler.class);
+  protected final Logger logger = LogManager.getLogger(KickHandler.class);
 
   public static final String OP = AjaxOperation.KICK.toString();
 

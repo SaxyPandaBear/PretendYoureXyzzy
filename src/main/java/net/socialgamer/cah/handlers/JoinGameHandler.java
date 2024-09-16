@@ -26,7 +26,7 @@ package net.socialgamer.cah.handlers;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 
 import com.google.inject.Inject;
 

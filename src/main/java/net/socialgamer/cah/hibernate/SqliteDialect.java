@@ -54,42 +54,6 @@ public class SqliteDialect extends Dialect {
   }
 
   @Override
-  public boolean supportsIdentityColumns() {
-    return true;
-  }
-
-  /*
-   * public boolean supportsInsertSelectIdentity() {
-   * return true; // As specify in NHibernate dialect
-   * }
-   */
-
-  @Override
-  public boolean hasDataTypeInIdentityColumn() {
-    return false; // As specify in NHibernate dialect
-  }
-
-  /*
-   * public String appendIdentitySelectToInsert(String insertString) {
-   * return new StringBuffer(insertString.length()+30). // As specify in NHibernate dialect
-   * append(insertString).
-   * append("; ").append(getIdentitySelectString()).
-   * toString();
-   * }
-   */
-
-  @Override
-  public String getIdentityColumnString() {
-    // return "integer primary key autoincrement";
-    return "integer";
-  }
-
-  @Override
-  public String getIdentitySelectString() {
-    return "select last_insert_rowid()";
-  }
-
-  @Override
   public boolean supportsLimit() {
     return true;
   }
@@ -99,22 +63,7 @@ public class SqliteDialect extends Dialect {
     return new StringBuffer(query.length() + 20).append(query)
         .append(hasOffset ? " limit ? offset ?" : " limit ?").toString();
   }
-
-  @Override
-  public boolean supportsTemporaryTables() {
-    return true;
-  }
-
-  @Override
-  public String getCreateTemporaryTableString() {
-    return "create temporary table if not exists";
-  }
-
-  @Override
-  public boolean dropTemporaryTableAfterUse() {
-    return false;
-  }
-
+  
   @Override
   public boolean supportsCurrentTimestampSelection() {
     return true;

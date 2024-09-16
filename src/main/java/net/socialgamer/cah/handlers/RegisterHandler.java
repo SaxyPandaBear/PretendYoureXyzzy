@@ -29,11 +29,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpHeaders;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -65,7 +66,7 @@ import net.socialgamer.cah.util.IdCodeMangler;
  */
 public class RegisterHandler extends Handler {
 
-  private static final Logger LOG = Logger.getLogger(RegisterHandler.class);
+  private static final Logger LOG = LogManager.getLogger(RegisterHandler.class);
   public static final String OP = AjaxOperation.REGISTER.toString();
 
   private static final Pattern VALID_NAME = Pattern.compile("[a-zA-Z_][a-zA-Z0-9_]{2,29}");

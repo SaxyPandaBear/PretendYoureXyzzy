@@ -25,13 +25,19 @@ package net.socialgamer.cah;
 
 import java.io.File;
 import java.io.FileReader;
+import java.net.URI;
 import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.config.Configuration;
+import org.apache.logging.log4j.core.config.Configurator;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextEvent;
 
 import net.socialgamer.cah.CahModule.ServerStarted;
 import net.socialgamer.cah.CahModule.UniqueId;
@@ -40,9 +46,6 @@ import net.socialgamer.cah.cardcast.CardcastService;
 import net.socialgamer.cah.metrics.Metrics;
 import net.socialgamer.cah.task.BroadcastGameListUpdateTask;
 import net.socialgamer.cah.task.UserPingTask;
-
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -59,7 +62,7 @@ import com.google.inject.servlet.GuiceServletContextListener;
  */
 public class StartupUtils extends GuiceServletContextListener {
 
-  private static final Logger LOG = Logger.getLogger(StartupUtils.class);
+  private static final Logger LOG = LogManager.getLogger(StartupUtils.class);
 
   /**
    * Context attribute key name for the Guice injector.
@@ -168,7 +171,7 @@ public class StartupUtils extends GuiceServletContextListener {
   public static void reconfigureLogging(final ServletContext context) {
     LOG.info("Reloading log4j.properties");
 
-    PropertyConfigurator.configure(context.getRealPath("/WEB-INF/log4j.properties"));
+    Configurator.reconfigure(URI.create(context.getRealPath("/WEB-INF/log4j.properties")));
   }
 
   protected Injector getInjector(final ServletContext context) {

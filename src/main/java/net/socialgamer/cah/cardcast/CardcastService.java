@@ -45,7 +45,8 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import org.apache.commons.lang3.StringEscapeUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -57,7 +58,7 @@ import net.socialgamer.cah.cardcast.CardcastModule.CardcastCardId;
 
 
 public class CardcastService {
-  private static final Logger LOG = Logger.getLogger(CardcastService.class);
+  private static final Logger LOG = LogManager.getLogger(CardcastService.class);
 
   private static final String HOSTNAME = "api.cardcastgame.com";
 

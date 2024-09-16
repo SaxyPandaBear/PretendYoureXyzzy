@@ -35,11 +35,13 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 
 import com.google.inject.*;
 import net.socialgamer.cah.data.GameOptions;
-import org.apache.log4j.Logger;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 
 import com.google.common.collect.ImmutableSet;
@@ -60,7 +62,7 @@ import net.socialgamer.cah.metrics.UniqueIds;
  */
 public class CahModule extends AbstractModule {
 
-  private static final Logger LOG = Logger.getLogger(CahModule.class);
+  private static final Logger LOG = LogManager.getLogger(CahModule.class);
 
   private final Properties properties = new Properties();
 

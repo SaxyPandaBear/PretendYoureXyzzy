@@ -31,7 +31,7 @@ created for the user now.
 <%@ page import="com.google.inject.Injector" %>
 <%@ page import="com.google.inject.Key" %>
 <%@ page import="com.google.inject.TypeLiteral" %>
-<%@ page import="javax.servlet.http.HttpSession" %>
+<%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="net.socialgamer.cah.RequestWrapper" %>
 <%@ page import="net.socialgamer.cah.StartupUtils" %>
 <%@ page import="net.socialgamer.cah.data.GameOptions" %>
@@ -83,12 +83,6 @@ boolean allowBlankCards = injector.getInstance(Key.get(new TypeLiteral<Boolean>(
 <body id="gamebody">
 
 <div id="welcome">
-  <div id="tweetbox">
-    <h3>Recent tweets (mainly server status updates)</h3>
-    <a class="twitter-timeline" data-height="500" data-dnt="true" data-theme="light"
-    href="https://twitter.com/_PYX_?ref_src=twsrc%5Etfw">Tweets by _PYX_</a>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  </div>
   <h1 tabindex="0">
     Pretend You're <dfn
     title="Xyzzy is an Artificial Unintelligence bot. You'll be making more sense than him in this game.">

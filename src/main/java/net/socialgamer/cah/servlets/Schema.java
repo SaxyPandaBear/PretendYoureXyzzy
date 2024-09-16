@@ -26,13 +26,15 @@ package net.socialgamer.cah.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.hibernate.cfg.Configuration;
+import org.hibernate.dialect.Dialect;
+import org.hibernate.dialect.PostgreSQL82Dialect;
 import org.hibernate.dialect.PostgreSQLDialect;
 
 
@@ -53,7 +55,7 @@ public class Schema extends HttpServlet {
       throws ServletException, IOException {
     final Configuration c = new Configuration();
     c.configure();
-    final String[] ls = c.generateSchemaCreationScript(new PostgreSQLDialect());
+    final String[] ls = new String[]{""};
     final PrintWriter out = response.getWriter();
     for (final String l : ls) {
       out.println(l + ";");
